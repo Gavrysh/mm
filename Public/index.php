@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 class Room
 {
     private $color = 'red';
@@ -27,3 +28,6 @@ $room->getColor();
 echo '<br>';
 $room->getVariable();
 
+=======
+echo '<h1>Hello, World!</h1>';
+>>>>>>> 75226d66f5a0ed7bbcf029dc7a44b9dcb74b62df
