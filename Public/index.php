@@ -2,29 +2,45 @@
 
 class Room
 {
-    public static $lacation = 'Inside the hose';
-    public $color = 'red';
+    static private $count = 0;
+    static private $destructedObjectsCount = 0;
 
-    public static function setLocation($location)
+    public function __construct()
     {
-        self::$lacation = $location;
+        ++self::$count;
+        echo 'The object was created '.self::$count.' times<br>';
     }
 
-    public static function staticSetLocation($location)
+    public function __invoke()
     {
-        static::$lacation = $location;
+        echo 'The method was caused by as function<br>';
     }
 
-    public function setColor($color)
+    public function __destruct()
     {
-        $this->color = $color;
+        if (self::$destructedObjectsCount == 0) {
+            echo 'The following objects are destroyed: ';
+        }
+        echo self::$destructedObjectsCount += 1;
+        echo '-th, ';
+    }
+
+    public function __call($name, $arguments)
+    {
+        echo 'Undefined method: <b>'.$name.'</b> in class - <b>'.get_class($this).'</b><br>';
+    }
+
+    public static function __callStatic($name, $arguments)
+    {
+        echo 'Undefined static method: <b>'.$name.'</b> in class - <b>'.get_class().'</b><br>';
     }
 }
 
-$myRoom = new Room();
-$myRoom->setColor('New color');
-echo $myRoom->color;
-echo '<br>';
+for ($i = 0; $i < rand(10, 60); ++$i) {
+    $obj{$i} = new Room();
+}
 
-Room::staticSetLocation('New location. Teleported the room together with the house!');
-echo Room::$lacation;
+$object = new Room();
+$object();
+$object->undefMethod();
+Room::undefStaticMethod();
