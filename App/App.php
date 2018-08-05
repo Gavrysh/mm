@@ -2,10 +2,16 @@
 
 namespace App;
 
-class App
+use Gss\Core\App as CoreApp;
+/**
+ * Class App
+ * @package App
+ */
+class App extends CoreApp
 {
     public function __construct()
     {
-        echo 'Create Class <b>'.get_class().'</b> from folder <i>App/</i><br>';
+        parent::__construct();
+        echo 'Create Class <b>'.get_class().'</b> from folder <i>Gss/Core/</i><br>';
     }
 }
