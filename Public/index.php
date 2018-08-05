@@ -3,17 +3,28 @@
 class Room
 {
     public static $lacation = 'Inside the hose';
+    public $color = 'red';
 
     public static function setLocation($location)
     {
         self::$lacation = $location;
     }
+
+    public static function staticSetLocation($location)
+    {
+        static::$lacation = $location;
+    }
+
+    public function setColor($color)
+    {
+        $this->color = $color;
+    }
 }
 
-echo Room::$lacation;
+$myRoom = new Room();
+$myRoom->setColor('New color');
+echo $myRoom->color;
 echo '<br>';
 
-Room::setLocation('Inside the hose on Mars');
-
-echo '<h3>But this modified property:</h3>';
+Room::staticSetLocation('New location. Teleported the room together with the house!');
 echo Room::$lacation;
