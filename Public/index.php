@@ -2,51 +2,18 @@
 
 class Room
 {
-    /**
-     * @var string
-     */
-    private $color = 'red';
+    public static $lacation = 'Inside the hose';
 
-    /**
-     * @var int
-     */
-    protected $windows = 4;
-
-    /**
-     * @var bool
-     */
-    public $lamp = true;
-
-    /**
-     *
-     */
-    public function getColor()
+    public static function setLocation($location)
     {
-        echo $this->color;
-    }
-
-    /**
-     * @param $color
-     */
-    public function setColor($color)
-    {
-        echo $this->color = $color;
+        self::$lacation = $location;
     }
 }
 
-$room = new Room();
-
-$room->lamp;
-echo '<h4>Print public property</h4>';
-echo $room->lamp;
+echo Room::$lacation;
 echo '<br>';
 
-echo 'Now light is ';
-echo $room->lamp ? 'on' : 'off';
-echo '<br>';
+Room::setLocation('Inside the hose on Mars');
 
-//echo $room->windows; // 'Error. Will not work. Protected property.'
-
-//echo $room->color; // 'Error. Will not work. Private property.'
-
-echo '<h3>End of script</h3>';
+echo '<h3>But this modified property:</h3>';
+echo Room::$lacation;
