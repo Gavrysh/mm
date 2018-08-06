@@ -2,6 +2,10 @@
 
 namespace Gss\Core;
 
+/**
+ * Class App
+ * @package Gss\Core
+ */
 class App
 {
     public function __construct()
