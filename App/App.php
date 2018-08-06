@@ -2,12 +2,12 @@
 
 namespace App;
 
-use Gss\Core\App as CoreApp;
+use Gss\Core\Application;
 /**
  * Class App
  * @package App
  */
-class App extends CoreApp
+class App extends Application
 {
     public function __construct()
     {
@@ -15,13 +15,8 @@ class App extends CoreApp
         echo 'Create Class <b>'.get_class().'</b> from folder <i>Gss/Core/</i><br>';
     }
 
-    public function run($data = null)
+    public function run()
     {
-        echo isset($data) ? $data->get(): 'null';
-    }
 
-    public function getVersion()
-    {
-        return 'Version = 1.0.0';
     }
 }
