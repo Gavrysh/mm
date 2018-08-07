@@ -26,8 +26,10 @@ require_once './vendor/autoload.php';
 
 $app = new \Gss\App\App();
 
-$data1 = new \Gss\App\Data1();
-echo $data1->getLessons();
+$payPal = new \Gss\App\PaymentSystems\PayPal();
+$webMoney = new \Gss\App\PaymentSystems\WebMoney();
 
-$data2 = new \Gss\App\Data2();
-echo $data2->getLessons();
+$paymentSystem = new \Gss\App\PaymentService();
+
+$paymentSystem->payment($payPal);
+$paymentSystem->payment($webMoney);
