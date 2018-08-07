@@ -24,12 +24,4 @@ spl_autoload_register('myAutoload');*/
 
 require_once './vendor/autoload.php';
 
-$app = new \Gss\App\App();
-
-$payPal = new \Gss\App\PaymentSystems\PayPal();
-$webMoney = new \Gss\App\PaymentSystems\WebMoney();
-
-$paymentSystem = new \Gss\App\PaymentService();
-
-$paymentSystem->payment($payPal);
-$paymentSystem->payment($webMoney);
+$obj = new \Gss\App\App();
