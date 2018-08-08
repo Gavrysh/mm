@@ -5,7 +5,7 @@ lessons from Razzwan (https://github.com/altiore/mm)
 3. Область видимости свойств и методов класса (private, public, protected)
 4. Статические (static) свойства и методы
 5. Ключевые слова $this, self, static
-6. Магические методы (__construct(), __invoke()... )
+6. Магические методы (__ construct(), __ invoke()... )
 7. Типичная структура рабочих папок
 8. Пространства имен (namespace)
 9. Наследование (extends), ключевое слово "parent::"
